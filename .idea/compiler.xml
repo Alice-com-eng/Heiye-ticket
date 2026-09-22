@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Heiye-database-spring-boot-starter" />
+        <module name="Heiye-cache-spring-boot-starter" />
+        <module name="Heiye-aggregation-service" />
+        <module name="Heiye-base-spring-boot-starter" />
+        <module name="Heiye-common-spring-boot-starter" />
+        <module name="Heiye-user-spring-boot-starter" />
+        <module name="Heiye-general-test" />
+        <module name="Heiye-web-spring-boot-starter" />
+        <module name="Heiye-order-service" />
+        <module name="Heiye-designpattern-spring-boot-starter" />
+        <module name="Heiye-idempotent-spring-boot-starter" />
+        <module name="Heiye-distributedid-spring-boot-starter" />
+        <module name="Heiye-convention-spring-boot-starter" />
+        <module name="Heiye-user-service" />
+        <module name="Heiye-log-spring-boot-starter" />
+        <module name="Heiye-ticket-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="index12306-gateway-service" target="17" />
+      <module name="index12306-pay-service" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

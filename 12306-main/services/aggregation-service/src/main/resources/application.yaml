@@ -1,0 +1,60 @@
+server:
+  port: 9005
+
+spring:
+  application:
+    name: Heiye-aggregation-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/12306?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 123456
+  dynamic:
+    thread-pool:
+      config-file-type: yml
+      executors:
+        - thread-pool-id: 'select-seat-thread-pool-executor'
+          alarm: false
+          allow-core-thread-time-out: true
+          blocking-queue: SynchronousQueue
+          core-pool-size: 20
+          maximum-pool-size: 40
+          keep-alive-time: 9999
+          rejected-handler: CallerRunsPolicy
+
+  main:
+    allow-bean-definition-overriding: true
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: delFlag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+framework:
+  fastjson:
+    safe-mode: true
+  cache:
+    redis:
+      value-timeout: 50000
+      bloom-filter:
+        user-register:
+          name: user_register_cache_penetration_bloom_filter
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn

@@ -1,0 +1,52 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: index12306-ticket-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/12306?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    hikari:
+      connection-test-query: select 1
+      connection-timeout: 20000
+      idle-timeout: 300000
+      maximum-pool-size: 5
+      minimum-idle: 5
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: 123456
+  dynamic:
+    thread-pool:
+      config-file-type: yml
+      executors:
+        - thread-pool-id: 'select-seat-thread-pool-executor'
+          alarm: false
+          allow-core-thread-time-out: true
+          blocking-queue: SynchronousQueue
+          core-pool-size: 20
+          maximum-pool-size: 40
+          keep-alive-time: 9999
+          rejected-handler: CallerRunsPolicy
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: delFlag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+
+framework:
+  fastjson:
+    safe-mode: true
+  cache:
+    redis:
+      value-timeout: 16
+      value-time-unit: days

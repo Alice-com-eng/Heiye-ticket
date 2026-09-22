@@ -1,0 +1,35 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: index12306-user-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/12306?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: 123456
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: delFlag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+framework:
+  fastjson:
+    safe-mode: true
+  cache:
+    redis:
+      value-timeout: 50000
+      bloom-filter:
+        user-register:
+          name: user_register_cache_penetration_bloom_filter
