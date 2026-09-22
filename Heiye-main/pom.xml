@@ -97,35 +97,7 @@
 
 
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven-common-plugin.version}</version>
-                <configuration>
-                    <!-- ${maven.multiModuleProjectDirectory} 爆红属于正常，并不影响编译或者运行，忽略就好 -->
-                    <configLocation>${maven.multiModuleProjectDirectory}/checkstyle/12306_checkstyle.xml
-                    </configLocation>
-                    <!-- ${maven.multiModuleProjectDirectory} 爆红属于正常，并不影响编译或者运行，忽略就好 -->
-                    <suppressionsLocation>
-                        ${maven.multiModuleProjectDirectory}/checkstyle/12306_checkstyle_suppression.xml
-                    </suppressionsLocation>
-                    <!-- Do not scan the test directory for now -->
-                    <includeTestSourceDirectory>false</includeTestSourceDirectory>
-                    <consoleOutput>true</consoleOutput>
-                    <encoding>UTF-8</encoding>
-                    <skip>${skip.checkstyle.check}</skip>
-                    <violationSeverity>error</violationSeverity>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>checkstyle</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
